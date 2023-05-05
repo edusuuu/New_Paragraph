@@ -1,26 +1,79 @@
-let align = "left";
-let paragraph_wrapper = document.querySelector(".paragraph-wrapper");
-let paragraphs = document.querySelector(".paragraphs");
-let alignButtonLeft = document.querySelector(".align-left");
-let alignButtonCenter = document.querySelector(".align-center");
-let alignButtonRight = document.querySelector(".align-right");
-let add_paragraph_button = document.querySelector(".add-paragraph-button");
-let paragraph_input = document.querySelector("#paragraph-input");
+let paragraphs = document.querySelector(".paragraphs")
+let form = document.querySelector(".form")
+let form_input = document.querySelector(".form__input")
+let add_paragraph = document.querySelector(".add-paragraph")
+let align_button_wrapper = document.querySelector(".align-button-wrapper")
+let align_left_button = document.querySelector(".align-left")
+let align_center_button = document.querySelector(".align-center")
+let align_right_button = document.querySelector(".align-right")
 
-const createElement = (element) => document.createElement(element);
+let align = "left"
 
-add_paragraph_button.onclick = () => {
-  let paragraph_container = createElement("li");
-  let paragraph = createElement("p");
-  paragraph.textContent = paragraph_input.value;
-  paragraph_container.value = "";
-  paragraph_container.appendChild(paragraph);
-  paragraphs.appendChild(paragraph_container);
-};
+function createElement(element) {
+  return document.createElement(element)
+}
 
-paragraphs.appendChild(
-  (createElement("li").textContent = "qlkwejqwlkejqewlkj")
-);
-alignButtonLeft.onclick = () => (align = "left");
-alignButtonCenter.onclick = () => (align = "center");
-alignButtonRight.onclick = () => (align = "right");
+function set_what_align_button_is_active() {
+  let align_buttons = [...align_button_wrapper.children]
+  console.log(align_buttons)
+
+  align_buttons.forEach((button) => {
+    if (button.classList.contains("active")) {
+      button.classList.remove("active");
+    }
+
+    switch (align) {
+
+      case "left":
+        align_left_button.classList.add("active"); break;
+
+      case "center":
+        align_center_button.classList.add("active"); break;
+
+      case "right":
+        align_right_button.classList.add("active"); break;
+
+      default:
+        return null;
+    }
+  })
+}
+
+function align_paragraph(align_button) {
+  align_button.onclick = () => {
+    switch (align_button.textContent) {
+
+      case "align left":
+        align = "left"; break;
+
+      case "align center":
+        align = "center"; break;
+
+      case "align right":
+        align = "right"; break;
+
+      default:
+        return null;
+    }
+    set_what_align_button_is_active()
+  }
+}
+
+align_paragraph(align_left_button)
+align_paragraph(align_center_button)
+align_paragraph(align_right_button)
+
+
+let unset = ""
+form.onsubmit = (event) => {
+  event.preventDefault();
+  if (!form_input.value) return;
+  let paragraph_container = document.createElement("li");
+  let paragraph = document.createElement("p")
+  paragraph.textContent = form_input.value;
+  paragraph.style.textAlign = align;
+  form_input.value = unset;
+  paragraph_container.appendChild(paragraph)
+  paragraphs.appendChild(paragraph_container)
+}
+

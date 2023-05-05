@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>align paragraph</title>
-  </head>
-  <body>
-    <div id="app">
-      <div class="paragraph-wrapper">
-        <ul class="paragraphs"></ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>align paragraph</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul class="paragraphs"></ul>
+    <form class="form">
+      <input class="form__input" placeholder="type a paragraph" type="text">
+      <button class="add-paragraph" type="submit">Add this as a new paragraph</button>
+      <div class="align-button-wrapper">
+        <button class="align-left active" type="button">align left</button>
+        <button class="align-center" type="button">align center</button>
+        <button class="align-right" type="button">align right</button>
       </div>
-      <form id="form">
-        <input
-          id="paragraph-input"
-          placeholder="type a paragraph"
-          type="text"
-        />
-        <button class="add-paragraph-button" type="button">
-          Add this as a new paragraph
-        </button>
-        <div class="align-button-wrapper">
-          <button type="button" class="align-left">align left</button>
-          <button type="button" class="align-center">align center</button>
-          <button type="button" class="align-right">align right</button>
-        </div>
-      </form>
-    </div>
-  </body>
+    </form>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
 </html>
