@@ -8,6 +8,10 @@ let align_center_button = document.querySelector(".align-center")
 let align_right_button = document.querySelector(".align-right")
 
 let align = "left"
+let count_of_paragraphs = 0;
+
+// EDIT MO LANG TONG ARRAY KUNG GUSTO MO DAGDAGAN YUNG KULAY
+let colors = ["#E76161", "#19A7CE", "#27E1C1", "#AA77FF"]
 
 function createElement(element) {
   return document.createElement(element)
@@ -70,10 +74,12 @@ form.onsubmit = (event) => {
   if (!form_input.value) return;
   let paragraph_container = document.createElement("li");
   let paragraph = document.createElement("p")
+  paragraph_container.style.background = colors[count_of_paragraphs % colors.length]
   paragraph.textContent = form_input.value;
   paragraph.style.textAlign = align;
   form_input.value = unset;
   paragraph_container.appendChild(paragraph)
   paragraphs.appendChild(paragraph_container)
+  count_of_paragraphs += 1;
 }
 
