@@ -20,13 +20,11 @@
 }
 
 .paragraphs > li {
-  background: #19A7CE;
   color: #212A3E;
   font-size: 18px;
   padding: 10px 5px;
   font-weight: bold;
   margin-bottom: 5px;
-
 }
 
 .form {
