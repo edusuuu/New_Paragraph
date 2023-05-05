@@ -1,22 +1,35 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 #app {
   max-width: 1000px;
   margin-inline: auto;
   min-height: 100vh;
 }
 
-.paragraph-wrapper {
-  min-height: 250px;
-  background: #acb1d6;
-  letter-spacing: 1px;
-  font-weight: bold;
-  color: #212a3e;
-  border: 1px solid black;
-}
-.paragraph-wrapper > ul {
+.paragraphs {
+  margin-top: 20px;
   list-style: none;
+  border: 1px solid black;
+  min-height: 200px;
+  border-radius: 5px;
 }
 
-#form {
+.paragraphs > li {
+  background: #19A7CE;
+  color: #212A3E;
+  font-size: 18px;
+  padding: 10px 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+
+}
+
+.form {
   display: flex;
   margin-top: 10px;
   flex-direction: column;
@@ -24,12 +37,44 @@
   gap: 10px;
 }
 
-#form > input {
+.form > .form__input {
   padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: 2px solid #19A7CE;
 }
-#form > button {
-  padding: 10px 20px;
+.form > .form__input:focus {
+  outline: 2px solid #F97B22;
+  border: none;
 }
 
-.add-paragraph-button {
+.form > .add-paragraph {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
+
+.form > .add-paragraph:hover {
+  outline: 3px solid #A0D8B3;
+}
+
+.form > .align-button-wrapper > button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-inline: 2px;
+}
+.form > .align-button-wrapper > button:not(.active):hover {
+  outline: 3px solid #A0D8B3;
+}
+
+.form > .align-button-wrapper > button.active {
+  background: #A0D8B3;
+  color: #4C3D3D;
+  font-weight: bold;
 }
